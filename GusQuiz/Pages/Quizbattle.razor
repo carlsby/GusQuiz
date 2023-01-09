@@ -1,0 +1,49 @@
+﻿@page "/quizbattle"
+@inherits QuizBase
+@using GusQuiz.Components
+
+<div class="container">
+    <div class="quiz">
+        @if (questionIndex2 < Questions.Count)
+        {
+                <div class="app-title">
+                @Questions2[questionIndex2].Category
+                </div>
+                <div class="quiz-header">
+                @Questions2[questionIndex2].NameOfQuestion
+                </div>
+                <div class="quiz-body">
+                @foreach (var option in Questions2[questionIndex2].Options)
+                {
+                            <OptionCard Option="@option" OnOptionSelected="OptionSelected"></OptionCard>   
+                }
+                </div>
+        }
+        else
+        {
+                <div class="app-title">
+                @if (score > (Questions2.Count / 2))
+                {
+                            <img class="winlose" src="/images/trophy.png" />
+                }
+                else
+                {
+                            <img class="winlose"src="/images/clown.png" />
+                }
+                </div>
+                <div class="quiz-header">
+                @if (score == 1)
+                {
+                            <b>You scored @score point!</b>
+                }
+                else
+                {
+                            <b>You scored @score points!</b>
+                }
+                </div>
+                <div class="quiz-footer">
+                    <button class="next-btn" @onclick="@RestartQuiz">Play Again</button>
+                </div>
+        }
+    </div>
+</div>
