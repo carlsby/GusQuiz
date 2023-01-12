@@ -9,7 +9,14 @@ namespace GusQuiz.Pages
         public List<Question2> Questions2 { get; set; } = new List<Question2>();
         protected int questionIndex = 0;
         protected int questionIndex2 = 0;
-        protected int score = 0;
+        protected int player1Score = 0;
+        protected int player2Score = 0;
+        protected bool röv = false;
+        protected bool bajs = true;
+        protected int player1Wins = 0;
+        protected int player2Wins = 0;
+        protected string player1 = "";
+        protected string player2 = "";
 
         protected override Task OnInitializedAsync()
         {
@@ -20,19 +27,38 @@ namespace GusQuiz.Pages
 
         protected void OptionSelected(string option)
         {
-            if (option == Questions[questionIndex].Answer || option == Questions2[questionIndex2].Answer)
+            if (option == Questions[questionIndex].Answer)
             {
-                score++;
+                player1Score++;
             }
             questionIndex++;
-            questionIndex2++;
-        } 
+        }
+
+        protected void OptionSelected2(string option)
+        {
+            if (option == Questions[questionIndex].Answer)
+            {
+                player2Score++;
+            }
+            questionIndex++;
+        }
+
+        protected void NextPlayer()
+        {
+            questionIndex= 0;
+            questionIndex2 = 0;
+            röv = true;
+            bajs = false;
+        }
 
         protected void RestartQuiz()
         {
-            score = 0;
-            questionIndex= 0;
+            questionIndex = 0;
             questionIndex2 = 0;
+            röv = false;
+            bajs = true;
+            player1Score = 0;
+            player2Score = 0;
         }
 
         private void LoadQuestions()

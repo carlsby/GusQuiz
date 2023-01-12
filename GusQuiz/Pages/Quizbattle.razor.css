@@ -62,3 +62,7 @@
 .next-btn:hover {
         background-color: #020626;
 }
+
+.inputClass::after{
+    display: none;
+}

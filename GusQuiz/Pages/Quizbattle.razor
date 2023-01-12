@@ -1,49 +1,119 @@
 ﻿@page "/quizbattle"
 @inherits QuizBase
 @using GusQuiz.Components
+@using GusQuiz.Models;
 
-<div class="container">
-    <div class="quiz">
-        @if (questionIndex2 < Questions.Count)
-        {
+<input class="inputClass" @bind="player1" placeholder="Input first name" />
+<input class="inputClass" @bind="player2" placeholder="Input first name" />
+<br/>
+<b>@player1 | Wins: @player1Wins</b>
+<br/>
+<b>@player2 | Wins: @player2Wins</b>
+@if (bajs == true)
+{
+        <div class="container">
+            <div class="quiz">
+                <b>@player1</b>
+            @if (questionIndex < Questions.Count)
+            {
                 <div class="app-title">
-                @Questions2[questionIndex2].Category
+                    @Questions[questionIndex].Category
                 </div>
                 <div class="quiz-header">
-                @Questions2[questionIndex2].NameOfQuestion
+                    @Questions[questionIndex].NameOfQuestion
                 </div>
                 <div class="quiz-body">
-                @foreach (var option in Questions2[questionIndex2].Options)
-                {
-                            <OptionCard Option="@option" OnOptionSelected="OptionSelected"></OptionCard>   
-                }
+                    @foreach (var option in Questions[questionIndex].Options)
+                    {
+                        <OptionCard Option="@option" OnOptionSelected="OptionSelected"></OptionCard>  
+                    }
                 </div>
-        }
-        else
-        {
+            }
+            else
+            {
+                 <div class="quiz-footer">
+                    <button class="next-btn" @onclick="@NextPlayer">Next Player</button>
+                 </div>
+            }
+            </div>
+        </div>
+}
+
+
+
+@if (röv == true)
+{
+        <div class="container">
+            <div class="quiz">
+                <b>@player2</b>
+            @if (questionIndex < Questions.Count)
+            {
                 <div class="app-title">
-                @if (score > (Questions2.Count / 2))
-                {
-                            <img class="winlose" src="/images/trophy.png" />
-                }
-                else
-                {
-                            <img class="winlose"src="/images/clown.png" />
-                }
+                    @Questions[questionIndex].Category
                 </div>
                 <div class="quiz-header">
-                @if (score == 1)
-                {
-                            <b>You scored @score point!</b>
-                }
-                else
-                {
-                            <b>You scored @score points!</b>
-                }
+                    @Questions[questionIndex].NameOfQuestion
                 </div>
-                <div class="quiz-footer">
+                <div class="quiz-body">
+                    @foreach (var option in Questions[questionIndex].Options)
+                    {
+                        <OptionCard Option="@option" OnOptionSelected="OptionSelected2"></OptionCard>  
+                    }
+                </div>
+            }
+            else
+            {
+                 <div class="app-title">
+                    @if (player1Score > player2Score)
+                    {
+                        <img class="winlose" src="/images/trophy.png" />
+                        <b>@player1 wins!</b>
+                        player1Wins++;
+                    }
+                    else if (player1Score == player2Score)
+                    {
+                        <b>You are tied!</b>
+                        player1Wins++;
+                        player2Wins++;
+                    }
+                    else
+                    {
+                        <img class="winlose" src="/images/trophy.png" />
+                        <b>@player2 wins!</b>
+                        player2Wins++;
+                    }
+                 </div>
+@*                 <div class="quiz-header">
+                    @if (player1Score == player2Score)
+                    {
+                        <b>You scored @player2Score point!</b>
+                    }
+                    else
+                    {
+                        <b>You scored @player2Score points!</b>
+                    }
+                 </div>*@
+                 <div class="quiz-footer">
                     <button class="next-btn" @onclick="@RestartQuiz">Play Again</button>
-                </div>
-        }
-    </div>
-</div>
+                 </div>
+            }
+            </div>
+        </div>
+}
+
+
+@code {
+    private List<ListItem> myList = new List<ListItem>();
+
+    public string inputVal = "";
+
+    public void AddItem()
+    {
+        ListItem itemToAdd = new ListItem();
+        itemToAdd.Title = inputVal;
+        itemToAdd.IsDone = false;
+
+        myList.Add(itemToAdd);
+        inputVal = "";
+    }
+}

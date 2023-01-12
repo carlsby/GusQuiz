@@ -3,7 +3,7 @@
 @using GusQuiz.Components
 
 
-<p><a href="/sports">Back</a></p>
+@*<p><a href="/sports">Back</a></p>
 <div class="container">
     <div class="quiz">
         @if (questionIndex < Questions.Count)
@@ -24,7 +24,7 @@
         else
         {
                 <div class="app-title">
-                @if (score > (Questions.Count / 2))
+                @if (player1Score > (Questions.Count / 2))
                 {
                             <img class="winlose" src="/images/trophy.png" />
                 }
@@ -34,13 +34,13 @@
                 }
                 </div>
                 <div class="quiz-header">
-                @if (score == 1)
+                @if (player1score == 1)
                 {
-                            <b>You scored @score point!</b>
+                            <b>You scored @player1Score point!</b>
                 }
                 else
                 {
-                            <b>You scored @score points!</b>
+                            <b>You scored @player1Score points!</b>
                 }
                 </div>
                 <div class="quiz-footer">
@@ -48,4 +48,4 @@
                 </div>
         }
     </div>
-</div>
+</div>*@
