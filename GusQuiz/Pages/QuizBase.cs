@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Components;
 using GusQuiz.Models;
+using System.Xml.Linq;
 
 namespace GusQuiz.Pages
 {
@@ -59,6 +60,15 @@ namespace GusQuiz.Pages
             bajs = true;
             player1Score = 0;
             player2Score = 0;
+        }
+
+        public class Player
+        {
+            public string Name { get; set; }
+            public Player(string name)
+            {
+                Name = name;
+            }
         }
 
         private void LoadQuestions()

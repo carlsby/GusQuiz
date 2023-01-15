@@ -3,31 +3,36 @@
 @using GusQuiz.Components
 @using GusQuiz.Models;
 
-<input class="inputClass" @bind="player1" placeholder="Input first name" />
-<input class="inputClass" @bind="player2" placeholder="Input first name" />
-<br/>
-<b>@player1 | Wins: @player1Wins</b>
-<br/>
-<b>@player2 | Wins: @player2Wins</b>
-@if (bajs == true)
+<input type="text" @bind="firstName" placeholder="Enter player name" />
+<button @onclick="AddPlayer">Add Player</button>
+@if (players.Count > 0)
 {
-        <div class="container">
-            <div class="quiz">
-                <b>@player1</b>
-            @if (questionIndex < Questions.Count)
-            {
-                <div class="app-title">
-                    @Questions[questionIndex].Category
-                </div>
-                <div class="quiz-header">
-                    @Questions[questionIndex].NameOfQuestion
-                </div>
-                <div class="quiz-body">
-                    @foreach (var option in Questions[questionIndex].Options)
-                    {
-                        <OptionCard Option="@option" OnOptionSelected="OptionSelected"></OptionCard>  
-                    }
-                </div>
+    @foreach (Player player in players)
+    {
+            <b>@player.Name</b>
+    }
+}
+@if (players.Count > 1)
+{
+    @if (bajs == true)
+{
+    <div class="container">
+        <div class="quiz">
+            <b>@players[0].Name</b>
+        @if (questionIndex < Questions.Count)
+        {
+            <div class="app-title">
+                @Questions[questionIndex].Category
+            </div>
+            <div class="quiz-header">
+                @Questions[questionIndex].NameOfQuestion
+            </div>
+            <div class="quiz-body">
+                @foreach (var option in Questions[questionIndex].Options)
+                {
+                    <OptionCard Option="@option" OnOptionSelected="OptionSelected"></OptionCard>  
+                }
+            </div>
             }
             else
             {
@@ -35,17 +40,16 @@
                     <button class="next-btn" @onclick="@NextPlayer">Next Player</button>
                  </div>
             }
-            </div>
         </div>
+    </div>
 }
-
 
 
 @if (röv == true)
 {
         <div class="container">
             <div class="quiz">
-                <b>@player2</b>
+                <b>@players[1].Name</b>
             @if (questionIndex < Questions.Count)
             {
                 <div class="app-title">
@@ -67,7 +71,7 @@
                     @if (player1Score > player2Score)
                     {
                         <img class="winlose" src="/images/trophy.png" />
-                        <b>@player1 wins!</b>
+                        <b>@players[0].Name wins!</b>
                         player1Wins++;
                     }
                     else if (player1Score == player2Score)
@@ -79,20 +83,10 @@
                     else
                     {
                         <img class="winlose" src="/images/trophy.png" />
-                        <b>@player2 wins!</b>
+                        <b>@players[1].Name wins!</b>
                         player2Wins++;
                     }
                  </div>
-@*                 <div class="quiz-header">
-                    @if (player1Score == player2Score)
-                    {
-                        <b>You scored @player2Score point!</b>
-                    }
-                    else
-                    {
-                        <b>You scored @player2Score points!</b>
-                    }
-                 </div>*@
                  <div class="quiz-footer">
                     <button class="next-btn" @onclick="@RestartQuiz">Play Again</button>
                  </div>
@@ -100,20 +94,17 @@
             </div>
         </div>
 }
+}
+
 
 
 @code {
-    private List<ListItem> myList = new List<ListItem>();
-
-    public string inputVal = "";
-
-    public void AddItem()
+    string firstName = "";
+    public void AddPlayer()
     {
-        ListItem itemToAdd = new ListItem();
-        itemToAdd.Title = inputVal;
-        itemToAdd.IsDone = false;
-
-        myList.Add(itemToAdd);
-        inputVal = "";
+        players.Add(new Player(firstName));
     }
+    List<Player> players = new List<Player>()
+    {
+    };
 }
