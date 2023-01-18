@@ -1,8 +1,51 @@
 ﻿@page "/music"
+@inherits QuizBase
+@using GusQuiz.Components
+
 
 <p><a href="/entertainment">Back</a></p>
-<h3>Music</h3>
-
-@code {
-
-}
+<div class="container">
+    <div class="quiz">
+        @if (questionIndex6 < QuestionsMusic.Count)
+        {
+                <div class="app-title">
+                @QuestionsMusic[questionIndex6].Category
+                </div>
+                <div class="quiz-header">
+                @QuestionsMusic[questionIndex6].NameOfQuestion
+                </div>
+                <div class="quiz-body">
+                @foreach (var option in QuestionsMusic[questionIndex6].Options)
+                {
+                    <OptionCard Option="@option" OnOptionSelected="OptionSelected"></OptionCard>   
+                }
+                </div>
+        }
+        else
+        {
+                <div class="app-title">
+                @if (player1Score > (QuestionsMusic.Count / 2))
+                {
+                            <img class="winlose" src="/images/trophy.png" />
+                }
+                else
+                {
+                            <img class="winlose"src="/images/clown.png" />
+                }
+                </div>
+                <div class="quiz-header">
+                @if (player1Score == 1)
+                {
+                            <b>You scored @player1Score point!</b>
+                }
+                else
+                {
+                            <b>You scored @player1Score points!</b>
+                }
+                </div>
+                <div class="quiz-footer">
+                    <button class="next-btn" @onclick="@RestartQuiz">Play Again</button>
+                </div>
+        }
+    </div>
+</div>

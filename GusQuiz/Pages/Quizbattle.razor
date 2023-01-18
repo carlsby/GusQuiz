@@ -3,63 +3,64 @@
 @using GusQuiz.Components
 @using GusQuiz.Models;
 
-<input type="text" @bind="firstName" placeholder="Enter player name" />
-<button @onclick="AddPlayer">Add Player</button>
+@if (players.Count < 2)
+{
+    <input type="text" @bind="firstName" placeholder="Enter player name" />
+    <button @onclick="AddPlayer">Add Player</button>
+}
 @if (players.Count > 0)
 {
     @foreach (Player player in players)
     {
-            <b>@player.Name</b>
     }
 }
 @if (players.Count > 1)
 {
     @if (bajs == true)
-{
-    <div class="container">
-        <div class="quiz">
-            <b>@players[0].Name</b>
-        @if (questionIndex < Questions.Count)
+    {
+        <div class="container">
+            <div class="quiz">
+        @if (questionIndex5 < QuestionsFotboll.Count)
         {
             <div class="app-title">
-                @Questions[questionIndex].Category
+                @QuestionsFotboll[questionIndex5].Category
             </div>
             <div class="quiz-header">
-                @Questions[questionIndex].NameOfQuestion
+                        @QuestionsFotboll[questionIndex5].NameOfQuestion
             </div>
             <div class="quiz-body">
-                @foreach (var option in Questions[questionIndex].Options)
+                @foreach (var option in QuestionsFotboll[questionIndex5].Options)
                 {
                     <OptionCard Option="@option" OnOptionSelected="OptionSelected"></OptionCard>  
                 }
             </div>
-            }
-            else
-            {
-                 <div class="quiz-footer">
-                    <button class="next-btn" @onclick="@NextPlayer">Next Player</button>
-                 </div>
-            }
+        }
+                else
+                {
+                    <div class="quiz-footer">
+                        <button class="next-btn" @onclick="@NextPlayer">Next Player</button>
+                    </div>
+                }
+                <b class="player-name">@players[0].Name</b>
+            </div>
         </div>
-    </div>
-}
+    }
 
 
-@if (röv == true)
-{
+    @if (röv == true)
+    {
         <div class="container">
             <div class="quiz">
-                <b>@players[1].Name</b>
-            @if (questionIndex < Questions.Count)
+            @if (questionIndex5 < QuestionsFotboll.Count)
             {
                 <div class="app-title">
-                    @Questions[questionIndex].Category
+                    @QuestionsFotboll[questionIndex5].Category
                 </div>
                 <div class="quiz-header">
-                    @Questions[questionIndex].NameOfQuestion
+                    @QuestionsFotboll[questionIndex5].NameOfQuestion
                 </div>
                 <div class="quiz-body">
-                    @foreach (var option in Questions[questionIndex].Options)
+                    @foreach (var option in QuestionsFotboll[questionIndex5].Options)
                     {
                         <OptionCard Option="@option" OnOptionSelected="OptionSelected2"></OptionCard>  
                     }
@@ -88,12 +89,15 @@
                     }
                  </div>
                  <div class="quiz-footer">
+                     <b class="questions-right">@players[0].Name: @player1Score/@questionIndex5<br/> @players[1].Name: @player2Score/@questionIndex5<br/></b>
                     <button class="next-btn" @onclick="@RestartQuiz">Play Again</button>
                  </div>
             }
+                <b class="player-name">@players[1].Name</b>
             </div>
         </div>
-}
+    }
+    <div class="footer">@players[0].Name: @player1Wins wins | @players[1].Name: @player2Wins wins</div>
 }
 
 
@@ -103,6 +107,7 @@
     public void AddPlayer()
     {
         players.Add(new Player(firstName));
+        firstName = "";
     }
     List<Player> players = new List<Player>()
     {

@@ -1,8 +1,51 @@
 ﻿@page "/movies&tv-shows"
+@inherits QuizBase
+@using GusQuiz.Components
+
 
 <p><a href="/entertainment">Back</a></p>
-<h3>Movies & TV-Shows</h3>
-
-@code {
-
-}
+<div class="container">
+    <div class="quiz">
+        @if (questionIndex4 < QuestionsMovie.Count)
+        {
+                <div class="app-title">
+                @QuestionsMovie[questionIndex4].Category
+                </div>
+                <div class="quiz-header">
+                @QuestionsMovie[questionIndex4].NameOfQuestion
+                </div>
+                <div class="quiz-body">
+                @foreach (var option in QuestionsMovie[questionIndex4].Options)
+                {
+                    <OptionCard Option="@option" OnOptionSelected="OptionSelected"></OptionCard>   
+                }
+                </div>
+        }
+        else
+        {
+                <div class="app-title">
+                @if (player1Score > (QuestionsMovie.Count / 2))
+                {
+                            <img class="winlose" src="/images/trophy.png" />
+                }
+                else
+                {
+                            <img class="winlose"src="/images/clown.png" />
+                }
+                </div>
+                <div class="quiz-header">
+                @if (player1Score == 1)
+                {
+                            <b>You scored @player1Score point!</b>
+                }
+                else
+                {
+                            <b>You scored @player1Score points!</b>
+                }
+                </div>
+                <div class="quiz-footer">
+                    <button class="next-btn" @onclick="@RestartQuiz">Play Again</button>
+                </div>
+        }
+    </div>
+</div>

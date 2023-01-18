@@ -6,6 +6,7 @@ namespace GusQuiz.Components
     {
         [Parameter]
         public string Option { get; set; } = string.Empty;
+        public string Option2 { get; set; } = string.Empty;
         [Parameter]
         public EventCallback<string> OnOptionSelected { get; set; }
 

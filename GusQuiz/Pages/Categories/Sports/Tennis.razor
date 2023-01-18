@@ -1,8 +1,51 @@
 ﻿@page "/tennis"
+@inherits QuizBase
+@using GusQuiz.Components
+
 
 <p><a href="/sports">Back</a></p>
-<h3>Tennis</h3>
-
-@code {
-
-}
+<div class="container">
+    <div class="quiz">
+        @if (questionIndex5 < QuestionsTennis.Count)
+        {
+                <div class="app-title">
+                @QuestionsTennis[questionIndex5].Category
+                </div>
+                <div class="quiz-header">
+                @QuestionsTennis[questionIndex5].NameOfQuestion
+                </div>
+                <div class="quiz-body">
+                @foreach (var option2 in QuestionsTennis[questionIndex5].Options)
+                {
+                    <OptionCard Option="@option2" OnOptionSelected="OptionSelected"></OptionCard>   
+                }
+                </div>
+        }
+        else
+        {
+                <div class="app-title">
+                @if (player1Score > (QuestionsTennis.Count / 2))
+                {
+                            <img class="winlose" src="/images/trophy.png" />
+                }
+                else
+                {
+                            <img class="winlose"src="/images/clown.png" />
+                }
+                </div>
+                <div class="quiz-header">
+                @if (player1Score == 1)
+                {
+                            <b>You scored @player1Score point!</b>
+                }
+                else
+                {
+                            <b>You scored @player1Score points!</b>
+                }
+                </div>
+                <div class="quiz-footer">
+                    <button class="next-btn" @onclick="@RestartQuiz">Play Again</button>
+                </div>
+        }
+    </div>
+</div>
