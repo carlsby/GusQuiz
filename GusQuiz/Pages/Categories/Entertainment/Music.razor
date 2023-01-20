@@ -6,25 +6,25 @@
 <p><a href="/entertainment">Back</a></p>
 <div class="container">
     <div class="quiz">
-        @if (questionIndex6 < QuestionsMusic.Count)
+        @if (questionIndex6 < 6)
         {
                 <div class="app-title">
-                @QuestionsMusic[questionIndex6].Category
+                     @Questions[musicCount].Category
                 </div>
                 <div class="quiz-header">
-                @QuestionsMusic[questionIndex6].NameOfQuestion
-                </div>
+                    @Questions[musicCount].NameOfQuestion
+            </div>
                 <div class="quiz-body">
-                @foreach (var option in QuestionsMusic[questionIndex6].Options)
-                {
-                    <OptionCard Option="@option" OnOptionSelected="OptionSelected"></OptionCard>   
-                }
+                    @foreach (var option2 in Questions[musicCount].Options)
+                    {
+                        <button class="option-btn" @onclick="Klicklol"><OptionCard Option="@option2" OnOptionSelected="OptionSelectedSolo"></OptionCard></button>
+                    }
                 </div>
         }
         else
         {
                 <div class="app-title">
-                @if (player1Score > (QuestionsMusic.Count / 2))
+                @if (player1Score > (6 / 2))
                 {
                             <img class="winlose" src="/images/trophy.png" />
                 }
@@ -36,11 +36,11 @@
                 <div class="quiz-header">
                 @if (player1Score == 1)
                 {
-                            <b>You scored @player1Score point!</b>
+                            <b>You scored @player1Score/@questionIndex6 point!</b>
                 }
                 else
                 {
-                            <b>You scored @player1Score points!</b>
+                            <b>You scored @player1Score/@questionIndex6 points!</b>
                 }
                 </div>
                 <div class="quiz-footer">
@@ -49,3 +49,10 @@
         }
     </div>
 </div>
+
+@code {
+    public void Klicklol()
+    {
+        musicCount++;
+    }
+}

@@ -1,6 +1,7 @@
 ﻿namespace GusQuiz.Models
 {
-    public class QuestionGolf
+
+    public class Question
     {
         public string NameOfQuestion { get; set; } = string.Empty;
         public string Category { get; set; } = string.Empty;
@@ -8,44 +9,13 @@
         public string Answer { get; set; } = string.Empty;
     }
 
-    public class QuestionTennis
+    public class QuestionFrenchCuisine
     {
         public string NameOfQuestion { get; set; } = string.Empty;
         public string Category { get; set; } = string.Empty;
         public IEnumerable<string> Options { get; set; } = new List<string>();
         public string Answer { get; set; } = string.Empty;
-    }
-
-    public class QuestionMusic
-    {
-        public string NameOfQuestion { get; set; } = string.Empty;
-        public string Category { get; set; } = string.Empty;
-        public IEnumerable<string> Options { get; set; } = new List<string>();
-        public string Answer { get; set; } = string.Empty;
-    }
-
-    public class QuestionMovie
-    {
-        public string NameOfQuestion { get; set; } = string.Empty;
-        public string Category { get; set; } = string.Empty;
-        public IEnumerable<string> Options { get; set; } = new List<string>();
-        public string Answer { get; set; } = string.Empty;
-    }
-
-    public class QuestionHockey
-    {
-        public string NameOfQuestion { get; set; } = string.Empty;
-        public string Category { get; set; } = string.Empty;
-        public IEnumerable<string> Options { get; set; } = new List<string>();
-        public string Answer { get; set; } = string.Empty;
-    }
-
-    public class QuestionFotboll
-    {
-        public string NameOfQuestion { get; set; } = string.Empty;
-        public string Category { get; set; } = string.Empty;
-        public IEnumerable<string> Options { get; set; } = new List<string>();
-        public string Answer { get; set; } = string.Empty;
+        public string Image { get; set; } = string.Empty;
     }
 
     public class Names

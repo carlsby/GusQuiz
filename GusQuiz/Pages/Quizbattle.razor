@@ -3,35 +3,32 @@
 @using GusQuiz.Components
 @using GusQuiz.Models;
 
+
+
 @if (players.Count < 2)
 {
     <input type="text" @bind="firstName" placeholder="Enter player name" />
     <button @onclick="AddPlayer">Add Player</button>
 }
-@if (players.Count > 0)
-{
-    @foreach (Player player in players)
-    {
-    }
-}
+
 @if (players.Count > 1)
 {
     @if (bajs == true)
     {
         <div class="container">
             <div class="quiz">
-        @if (questionIndex5 < QuestionsFotboll.Count)
+        @if (questionIndex23 < 10)
         {
             <div class="app-title">
-                @QuestionsFotboll[questionIndex5].Category
+                @Questions[kuken].Category
             </div>
             <div class="quiz-header">
-                        @QuestionsFotboll[questionIndex5].NameOfQuestion
+                @Questions[kuken].NameOfQuestion
             </div>
             <div class="quiz-body">
-                @foreach (var option in QuestionsFotboll[questionIndex5].Options)
+                @foreach (var option in Questions[kuken].Options)
                 {
-                    <OptionCard Option="@option" OnOptionSelected="OptionSelected"></OptionCard>  
+                    <button class="option-btn" @onclick="Hannes"><OptionCard Option="@option" OnOptionSelected="OptionSelected"></OptionCard></button>  
                 }
             </div>
         }
@@ -51,18 +48,18 @@
     {
         <div class="container">
             <div class="quiz">
-            @if (questionIndex5 < QuestionsFotboll.Count)
+            @if (questionIndex23 < 10)
             {
                 <div class="app-title">
-                    @QuestionsFotboll[questionIndex5].Category
+                        @Questions[kuken].Category
                 </div>
                 <div class="quiz-header">
-                    @QuestionsFotboll[questionIndex5].NameOfQuestion
+                        @Questions[kuken].NameOfQuestion
                 </div>
                 <div class="quiz-body">
-                    @foreach (var option in QuestionsFotboll[questionIndex5].Options)
+                        @foreach (var option in Questions[kuken].Options)
                     {
-                        <OptionCard Option="@option" OnOptionSelected="OptionSelected2"></OptionCard>  
+                        <button class="option-btn" @onclick="Hannes"><OptionCard Option="@option" OnOptionSelected="OptionSelected2"></OptionCard></button>  
                     }
                 </div>
             }
@@ -89,7 +86,7 @@
                     }
                  </div>
                  <div class="quiz-footer">
-                     <b class="questions-right">@players[0].Name: @player1Score/@questionIndex5<br/> @players[1].Name: @player2Score/@questionIndex5<br/></b>
+                     <b class="questions-right">@players[0].Name: @player1Score/@questionIndex23<br/> @players[1].Name: @player2Score/@questionIndex23<br/></b>
                     <button class="next-btn" @onclick="@RestartQuiz">Play Again</button>
                  </div>
             }
@@ -97,19 +94,28 @@
             </div>
         </div>
     }
-    <div class="footer">@players[0].Name: @player1Wins wins | @players[1].Name: @player2Wins wins</div>
+    <div class="footer"><p class="uppercase">@players[0].Name: @player1Wins wins</p><p class="uppercase">@players[1].Name: @player2Wins wins</p></div>
 }
 
 
 
 @code {
     string firstName = "";
+
     public void AddPlayer()
     {
         players.Add(new Player(firstName));
         firstName = "";
     }
+
     List<Player> players = new List<Player>()
     {
     };
+
+    public void Hannes()
+    {
+        Random slump = new Random();
+        kuken = slump.Next(1, 22);
+    }
+
 }

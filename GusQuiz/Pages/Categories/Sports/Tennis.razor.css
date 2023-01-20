@@ -62,3 +62,11 @@
 .next-btn:hover {
     background-color: #020626;
 }
+
+.option-btn {
+    border: none;
+    margin-bottom: 10px;
+    background: none;
+    margin-left: 5px;
+    margin-right: 5px;
+}

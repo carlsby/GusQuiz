@@ -6,25 +6,25 @@
 <p><a href="/sports">Back</a></p>
 <div class="container">
     <div class="quiz">
-        @if (questionIndex5 < QuestionsTennis.Count)
+        @if (questionIndex5 < 5)
         {
-                <div class="app-title">
-                @QuestionsTennis[questionIndex5].Category
-                </div>
-                <div class="quiz-header">
-                @QuestionsTennis[questionIndex5].NameOfQuestion
-                </div>
-                <div class="quiz-body">
-                @foreach (var option2 in QuestionsTennis[questionIndex5].Options)
+            <div class="app-title">
+                @Questions[tennisCount].Category
+            </div>
+            <div class="quiz-header">
+                @Questions[tennisCount].NameOfQuestion
+            </div>
+            <div class="quiz-body">
+                @foreach (var option2 in Questions[tennisCount].Options)
                 {
-                    <OptionCard Option="@option2" OnOptionSelected="OptionSelected"></OptionCard>   
+                    <button class="option-btn" @onclick="Klicklol"><OptionCard Option="@option2" OnOptionSelected="OptionSelectedSolo"></OptionCard></button>
                 }
-                </div>
+            </div>
         }
         else
         {
                 <div class="app-title">
-                @if (player1Score > (QuestionsTennis.Count / 2))
+                @if (player1Score > (5 / 2))
                 {
                             <img class="winlose" src="/images/trophy.png" />
                 }
@@ -36,11 +36,11 @@
                 <div class="quiz-header">
                 @if (player1Score == 1)
                 {
-                            <b>You scored @player1Score point!</b>
+                            <b>You scored @player1Score/@questionIndex5 point!</b>
                 }
                 else
                 {
-                            <b>You scored @player1Score points!</b>
+                            <b>You scored @player1Score/@questionIndex5 points!</b>
                 }
                 </div>
                 <div class="quiz-footer">
@@ -49,3 +49,10 @@
         }
     </div>
 </div>
+
+@code {
+    public void Klicklol()
+    {
+        tennisCount++;
+    }
+}

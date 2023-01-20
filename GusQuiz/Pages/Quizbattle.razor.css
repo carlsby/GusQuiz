@@ -76,6 +76,14 @@
     position: absolute;
     bottom: 0;
     font-size: 18px;
+}
+
+.uppercase {
+    margin-left: 5px;
+    display: block;
+}
+
+.uppercase::first-letter{
     text-transform: uppercase;
 }
 
@@ -113,4 +121,12 @@
     display: block;
     margin: 0 auto;
     border-radius: 25px;
+}
+
+.option-btn {
+    border: none;
+    margin-bottom: 10px;
+    background: none;
+    margin-left: 5px;
+    margin-right: 5px;
 }
