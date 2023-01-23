@@ -13,6 +13,7 @@ namespace GusQuiz.Pages
     {
         public List<QuestionFrenchCuisine> QuestionsFrenchCuisine { get; set; } = new List<QuestionFrenchCuisine>();
         public List<Question> Questions { get; set; } = new List<Question>();
+        public List<int> usedNumbers = new List<int>();
 
 
         protected int questionIndex6 = 0;
@@ -23,6 +24,7 @@ namespace GusQuiz.Pages
         protected int player2Score = 0;
         protected bool röv = false;
         protected bool bajs = true;
+        protected int newNumber;
         protected int player1Wins = 0;
         protected int player2Wins = 0;
         protected string player1 = "";
@@ -99,12 +101,13 @@ namespace GusQuiz.Pages
 
         protected void RestartQuiz()
         {
+            usedNumbers.Clear();
             questionIndex23 = 0;
             questionIndex6 = 0;
             questionIndex5 = 0;
             questionIndex4 = 0;
-            röv = false;
             bajs = true;
+            röv = false;
             player1Score = 0;
             player2Score = 0;
             golfCount = 0;

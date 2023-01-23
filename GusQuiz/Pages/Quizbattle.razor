@@ -72,16 +72,17 @@
                         <b>@players[0].Name wins!</b>
                         player1Wins++;
                     }
-                    else if (player1Score == player2Score)
+                    else if (player1Score < player2Score)
                     {
-                        <b>You are tied!</b>
-                        player1Wins++;
+
+                        <img class="winlose" src="/images/trophy.png" />
+                        <b>@players[1].Name wins!</b>
                         player2Wins++;
                     }
                     else
                     {
-                        <img class="winlose" src="/images/trophy.png" />
-                        <b>@players[1].Name wins!</b>
+                        <b>You are tied!</b>
+                        player1Wins++;
                         player2Wins++;
                     }
                  </div>
@@ -100,8 +101,9 @@
 
 
 @code {
-    string firstName = "";
 
+
+    string firstName = "";
     public void AddPlayer()
     {
         players.Add(new Player(firstName));
@@ -112,10 +114,17 @@
     {
     };
 
+    
+
     public void Hannes()
     {
         Random slump = new Random();
-        kuken = slump.Next(1, 22);
+        do
+        {
+            newNumber = slump.Next(1, 32);
+        } while (usedNumbers.Contains(newNumber));
+        usedNumbers.Add(newNumber);
+        kuken = newNumber;
     }
 
 }
