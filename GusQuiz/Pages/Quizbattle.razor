@@ -2,6 +2,7 @@
 @inherits QuizBase
 @using GusQuiz.Components
 @using GusQuiz.Models;
+@inject IJSRuntime JSRuntime
 
 
 
@@ -48,8 +49,10 @@
     {
         <div class="container">
             <div class="quiz">
-            @if (questionIndex23 < 10)
-            {
+                @if (gameOver == false)
+                {
+                @if (questionIndex23 < 10)
+                {
                 <div class="app-title">
                         @Questions[kuken].Category
                 </div>
@@ -57,33 +60,43 @@
                         @Questions[kuken].NameOfQuestion
                 </div>
                 <div class="quiz-body">
-                        @foreach (var option in Questions[kuken].Options)
+                    @foreach (var option in Questions[kuken].Options)
                     {
-                        <button class="option-btn" @onclick="Hannes"><OptionCard Option="@option" OnOptionSelected="OptionSelected2"></OptionCard></button>  
+                        <button class="option-btn" @onclick="Hannes"><OptionCard Option="@option" OnOptionSelected="OptionSelected2" ></OptionCard></button>  
                     }
                 </div>
-            }
-            else
+                    }
+                    else if (questionIndex23 >= 9)
+                    {
+                        gameOver = true;
+                    }
+                }
+
+
+            else if(gameOver == true)
             {
                  <div class="app-title">
-                    @if (player1Score > player2Score)
+                   @if (player1Score > player2Score)
                     {
                         <img class="winlose" src="/images/trophy.png" />
                         <b>@players[0].Name wins!</b>
                         player1Wins++;
+                        gameOver = false;
                     }
                     else if (player1Score < player2Score)
                     {
-
                         <img class="winlose" src="/images/trophy.png" />
                         <b>@players[1].Name wins!</b>
                         player2Wins++;
+                        gameOver = false;
                     }
                     else
                     {
                         <b>You are tied!</b>
                         player1Wins++;
                         player2Wins++;
+                        _ = JSRuntime.InvokeVoidAsync("console.log", "Shouldn't show");
+                        gameOver = false;
                     }
                  </div>
                  <div class="quiz-footer">
@@ -101,7 +114,7 @@
 
 
 @code {
-
+    bool gameOver = false;
 
     string firstName = "";
     public void AddPlayer()
@@ -114,17 +127,16 @@
     {
     };
 
-    
 
     public void Hannes()
     {
         Random slump = new Random();
         do
         {
-            newNumber = slump.Next(1, 32);
+            newNumber = slump.Next(1, 68);
         } while (usedNumbers.Contains(newNumber));
         usedNumbers.Add(newNumber);
         kuken = newNumber;
+        _ = JSRuntime.InvokeVoidAsync("console.log", "click");
     }
-
 }
