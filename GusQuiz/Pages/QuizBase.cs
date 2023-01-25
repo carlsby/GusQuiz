@@ -141,7 +141,15 @@ namespace GusQuiz.Pages
             carsCount = 24;
             videoGamesCount = 28;
             footballCount = 32;
-        }
+            historyCount = 37;
+            politicalHistoryCount = 41;
+            arthistoryCount = 45;
+            worldwarsCount = 49;
+            dessertCount = 53;
+            frenchCount = 57;
+            italianCount = 61;
+            drinksCount = 65;
+    }
 
         public class Player
         {
