@@ -10,13 +10,27 @@
     width: 50%;
     text-align: center;
     margin: 0 auto 50px;
-    background-color: #02093B;
+    background-color: #32CD32;
     border-bottom-left-radius: 15px;
-    color: white;
+    color: black;
     border-bottom-right-radius: 15px;
     border-left: 1px solid black;
     border-right: 1px solid black;
     border-bottom: 1px solid black;
+}
+
+.back-btn {
+    color: green !important;
+    text-decoration: none;
+    border: 2px solid green;
+    padding: 4px;
+    border-radius: 10px;
+}
+
+.back-btn:hover {
+    color: darkgreen !important;
+    border: 2px solid darkgreen;
+    transition: 0.2s;
 }
 
 .quiz-header {
@@ -29,11 +43,13 @@
     box-shadow: 0px 15px 10px -15px #111;
     margin-bottom: 20px;
     padding-bottom: 50px;
+    color: #006400;
+    font-size: 24px;
 }
 
 .quiz {
-    margin: 10px;
-    width: 25%;
+    margin: 0 auto;
+    width: 700px;
     border-radius: 10px;
     padding: 0 15px 15px 15px;
     box-shadow: -20px 20px 30px rgba(0,0,0,0.3);
@@ -45,6 +61,7 @@
     display: grid;
     grid-template-columns: 50% 50%;
     border-radius: 25px;
+    margin-top: 100px;
 }
 
 .winlose {
