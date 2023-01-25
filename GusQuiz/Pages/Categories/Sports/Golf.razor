@@ -8,22 +8,22 @@
     <div class="quiz">
         @if (questionIndex5 < 5)
         {
-                <div class="app-title">
-                     @Questions[golfCount].Category
-                </div>
-                <div class="quiz-header">
-                    @Questions[golfCount].NameOfQuestion
+            <div class="app-title">
+                @Questions[golfCount].Category
             </div>
-                <div class="quiz-body">
-                    @foreach (var option2 in Questions[golfCount].Options)
-                    {
-                        <button class="option-btn" @onclick="Klicklol"><OptionCard Option="@option2" OnOptionSelected="OptionSelectedSolo"></OptionCard></button>
-                    }
-                </div>
+            <div class="quiz-header">
+                @Questions[golfCount].NameOfQuestion
+            </div>
+            <div class="quiz-body">
+                @foreach (var option2 in Questions[golfCount].Options)
+                {
+                    <button class="option-btn" @onclick="Klicklol"><OptionCard Option="@option2" OnOptionSelected="OptionSelectedSolo"></OptionCard></button>
+                }
+            </div>
         }
         else
         {
-                <div class="app-title">
+            <div class="app-title">
                 @if (player1Score > (5 / 2))
                 {
                     <img class="winlose" src="/images/trophy.png" />
@@ -32,20 +32,20 @@
                 {
                     <img class="winlose"src="/images/clown.png" />
                 }
-                </div>
-                <div class="quiz-header">
+            </div>
+            <div class="quiz-header">
                 @if (player1Score == 1)
                 {
-                            <b>You scored @player1Score/@questionIndex5 point!</b>
+                    <b>You scored @player1Score/@questionIndex5 point!</b>
                 }
                 else
                 {
-                            <b>You scored @player1Score/@questionIndex5 points!</b>
+                    <b>You scored @player1Score/@questionIndex5 points!</b>
                 }
-                </div>
-                <div class="quiz-footer">
-                    <button class="next-btn" @onclick="@RestartQuiz">Play Again</button>
-                </div>
+            </div>
+            <div class="quiz-footer">
+                <button class="next-btn" @onclick="@RestartQuiz">Play Again</button>
+            </div>
         }
     </div>
 </div>

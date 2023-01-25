@@ -11,7 +11,7 @@
                 @Questions[hockeyCount].Category
             </div>
             <div class="quiz-header">
-                    @Questions[hockeyCount].NameOfQuestion
+                @Questions[hockeyCount].NameOfQuestion
             </div>
             <div class="quiz-body">
                 @foreach (var option2 in Questions[hockeyCount].Options)
@@ -22,29 +22,29 @@
         }
         else
         {
-                <div class="app-title">
+            <div class="app-title">
                 @if (player1Score > (5 / 2))
                 {
-                            <img class="winlose" src="/images/trophy.png" />
+                    <img class="winlose" src="/images/trophy.png" />
                 }
                 else
                 {
-                            <img class="winlose"src="/images/clown.png" />
+                    <img class="winlose"src="/images/clown.png" />
                 }
-                </div>
-                <div class="quiz-header">
+            </div>
+            <div class="quiz-header">
                 @if (player1Score == 1)
                 {
-                            <b>You scored @player1Score/@questionIndex4 point!</b>
+                    <b>You scored @player1Score/@questionIndex4 point!</b>
                 }
                 else
                 {
-                            <b>You scored @player1Score/@questionIndex4 points!</b>
+                    <b>You scored @player1Score/@questionIndex4 points!</b>
                 }
-                </div>
-                <div class="quiz-footer">
-                    <button class="next-btn" @onclick="@RestartQuiz">Play Again</button>
-                </div>
+            </div>
+            <div class="quiz-footer">
+                <button class="next-btn" @onclick="@RestartQuiz">Play Again</button>
+            </div>
         }
     </div>
 </div>
