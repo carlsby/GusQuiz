@@ -14,22 +14,22 @@
 
 @if (players.Count > 1)
 {
-    @if (bajs == true)
+    @if (playeroneloop == true)
     {
         <div class="container">
             <div class="quiz">
         @if (questionIndex23 < 10)
         {
             <div class="app-title">
-                @Questions[kuken].Category
+                @Questions[index].Category
             </div>
             <div class="quiz-header">
-                @Questions[kuken].NameOfQuestion
+                @Questions[index].NameOfQuestion
             </div>
             <div class="quiz-body">
-                @foreach (var option in Questions[kuken].Options)
+                @foreach (var option in Questions[index].Options)
                 {
-                    <button class="option-btn" @onclick="Hannes"><OptionCard Option="@option" OnOptionSelected="OptionSelected"></OptionCard></button>  
+                    <button class="option-btn" @onclick="indexcouter"><OptionCard Option="@option" OnOptionSelected="OptionSelected"></OptionCard></button>  
                 }
             </div>
         }
@@ -45,7 +45,7 @@
     }
 
 
-    @if (röv == true)
+    @if (playertwoloop == true)
     {
         <div class="container">
             <div class="quiz">
@@ -54,15 +54,15 @@
                 @if (questionIndex23 < 10)
                 {
                 <div class="app-title">
-                        @Questions[kuken].Category
+                        @Questions[index].Category
                 </div>
                 <div class="quiz-header">
-                        @Questions[kuken].NameOfQuestion
+                        @Questions[index].NameOfQuestion
                 </div>
                 <div class="quiz-body">
-                    @foreach (var option in Questions[kuken].Options)
+                    @foreach (var option in Questions[index].Options)
                     {
-                        <button class="option-btn" @onclick="Hannes"><OptionCard Option="@option" OnOptionSelected="OptionSelected2" ></OptionCard></button>  
+                        <button class="option-btn" @onclick="indexcouter"><OptionCard Option="@option" OnOptionSelected="OptionSelected2" ></OptionCard></button>  
                     }
                 </div>
                     }
@@ -128,7 +128,7 @@
     };
 
 
-    public void Hannes()
+    public void indexcouter()
     {
         Random slump = new Random();
         do
@@ -136,7 +136,7 @@
             newNumber = slump.Next(1, 68);
         } while (usedNumbers.Contains(newNumber));
         usedNumbers.Add(newNumber);
-        kuken = newNumber;
+        index = newNumber;
         _ = JSRuntime.InvokeVoidAsync("console.log", "click");
     }
 }

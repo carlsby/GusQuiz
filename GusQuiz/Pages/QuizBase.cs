@@ -22,14 +22,14 @@ namespace GusQuiz.Pages
         protected int questionIndex23 = 0;
         protected int player1Score = 0;
         protected int player2Score = 0;
-        protected bool röv = false;
-        protected bool bajs = true;
+        protected bool playertwoloop = false;
+        protected bool playeroneloop = true;
         protected int newNumber;
         protected int player1Wins = 0;
         protected int player2Wins = 0;
         protected string player1 = "";
         protected string player2 = "";
-        protected int kuken = 0;
+        protected int index = 0;
         protected int golfCount = 0;
         protected int hockeyCount = 5;
         protected int tennisCount = 9;
@@ -54,7 +54,7 @@ namespace GusQuiz.Pages
 
         public void OptionSelected(string option)
         {
-            if (option == Questions[kuken].Answer)
+            if (option == Questions[index].Answer)
             {
                 player1Score++;
             }
@@ -64,7 +64,7 @@ namespace GusQuiz.Pages
 
         protected void OptionSelected2(string option)
         {
-            if (option == Questions[kuken].Answer)
+            if (option == Questions[index].Answer)
             {
                 player2Score++;
             }
@@ -118,8 +118,8 @@ namespace GusQuiz.Pages
             questionIndex5 = 0;
             questionIndex4 = 0;
             questionIndex23 = 0;
-            röv = true;
-            bajs = false;
+            playertwoloop = true;
+            playeroneloop = false;
         }
 
         protected void RestartQuiz()
@@ -129,8 +129,8 @@ namespace GusQuiz.Pages
             questionIndex6 = 0;
             questionIndex5 = 0;
             questionIndex4 = 0;
-            bajs = true;
-            röv = false;
+            playeroneloop = true;
+            playertwoloop = false;
             player1Score = 0;
             player2Score = 0;
             golfCount = 0;

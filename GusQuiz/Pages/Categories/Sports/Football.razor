@@ -17,7 +17,7 @@
             <div class="quiz-body">
                 @foreach (var option2 in Questions[footballCount].Options)
                 {
-                    <button class="option-btn" @onclick="Klicklol"><OptionCard Option="@option2" OnOptionSelected="OptionSelectedSolo"></OptionCard></button>
+                    <button class="option-btn" @onclick="Counter"><OptionCard Option="@option2" OnOptionSelected="OptionSelectedSolo"></OptionCard></button>
                 }
             </div>
         }
@@ -52,7 +52,7 @@
 
 
 @code {
-    public void Klicklol()
+    public void Counter()
     {
         footballCount++;
     }
