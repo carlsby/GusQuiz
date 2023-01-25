@@ -70,14 +70,17 @@
 
 .next-btn {
     margin: 0 auto;
+    padding: 10px;
+    border-radius: 15px;
     display: block;
-    background-color: #02093B;
-    color: white;
+    background-color: #32CD32;
+    color: black;
+    font-weight: bolder;
     cursor: pointer;
 }
 
 .next-btn:hover {
-    background-color: #020626;
+    background-color: green;
 }
 
 .option-btn {
