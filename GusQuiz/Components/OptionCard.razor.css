@@ -13,6 +13,8 @@
     padding-right: 10px;
     display: flex;
     justify-content: center;
+    width: 320px;
+    height: 100px;
 }
 
 .option:hover{
@@ -20,7 +22,7 @@
 }
 
 .option-h4 {
-    font-size: 15px;
+    font-size: 18px;
 }
 
 .option:hover {
