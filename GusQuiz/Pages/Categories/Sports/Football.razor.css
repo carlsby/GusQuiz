@@ -10,9 +10,9 @@
     width: 50%;
     text-align: center;
     margin: 0 auto 50px;
-    background-color: #02093B;
+    background-color: #32CD32;
     border-bottom-left-radius: 15px;
-    color: white;
+    color: black;
     border-bottom-right-radius: 15px;
     border-left: 1px solid black;
     border-right: 1px solid black;
@@ -29,10 +29,11 @@
     box-shadow: 0px 15px 10px -15px #111;
     margin-bottom: 20px;
     padding-bottom: 50px;
+    color: #006400;
 }
 
 .quiz {
-    margin: 10px;
+    margin: 0 auto;
     width: 25%;
     border-radius: 10px;
     padding: 0 15px 15px 15px;
