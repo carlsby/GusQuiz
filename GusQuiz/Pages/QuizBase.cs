@@ -86,7 +86,22 @@ namespace GusQuiz.Pages
             {
                 questionIndex4--;
             }
-            if (option == Questions[golfCount].Answer || option == Questions[hockeyCount].Answer || option == Questions[tennisCount].Answer || option == Questions[footballCount].Answer || option == Questions[carsCount].Answer || option == Questions[musicCount].Answer || option == Questions[movieCount].Answer || option == Questions[videoGamesCount].Answer)
+            if (option == Questions[golfCount].Answer ||
+                option == Questions[hockeyCount].Answer ||
+                option == Questions[tennisCount].Answer ||
+                option == Questions[footballCount].Answer ||
+                option == Questions[carsCount].Answer ||
+                option == Questions[musicCount].Answer ||
+                option == Questions[movieCount].Answer ||
+                option == Questions[videoGamesCount].Answer ||
+                option == Questions[dessertCount].Answer ||
+                option == Questions[frenchCount].Answer ||
+                option == Questions[historyCount].Answer ||
+                option == Questions[politicalHistoryCount].Answer ||
+                option == Questions[arthistoryCount].Answer ||
+                option == Questions[italianCount].Answer ||
+                option == Questions[worldwarsCount].Answer ||
+                option == Questions[drinksCount].Answer)
             {
                 player1Score++;
             }
