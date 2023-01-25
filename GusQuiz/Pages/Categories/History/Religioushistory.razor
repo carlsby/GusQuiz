@@ -1,8 +1,58 @@
 ﻿@page "/religioushistory"
+@inherits QuizBase
+@using GusQuiz.Components
+
 
 <p><a href="/history">Back</a></p>
-<h3>Religioushistory</h3>
+<div class="container">
+    <div class="quiz">
+        @if (questionIndex4 < 4)
+        {
+            <div class="app-title">
+                @Questions[historyCount].Category
+            </div>
+            <div class="quiz-header">
+                @Questions[historyCount].NameOfQuestion
+            </div>
+            <div class="quiz-body">
+                @foreach (var option2 in Questions[historyCount].Options)
+                {
+                    <button class="option-btn" @onclick="Klicklol"><OptionCard Option="@option2" OnOptionSelected="OptionSelectedSolo"></OptionCard></button>
+                }
+            </div>
+        }
+        else
+        {
+            <div class="app-title">
+                @if (player1Score > (2 / 2))
+                {
+                    <img class="winlose" src="/images/trophy.png" />
+                }
+                else
+                {
+                    <img class="winlose"src="/images/clown.png" />
+                }
+            </div>
+            <div class="quiz-header">
+                @if (player1Score == 1)
+                {
+                    <b>You scored @player1Score/@questionIndex4 point!</b>
+                }
+                else
+                {
+                    <b>You scored @player1Score/@questionIndex4 points!</b>
+                }
+            </div>
+            <div class="quiz-footer">
+                <button class="next-btn" @onclick="@RestartQuiz">Play Again</button>
+            </div>
+        }
+    </div>
+</div>
 
 @code {
-
+    public void Klicklol()
+    {
+        historyCount++;
+    }
 }

@@ -38,6 +38,14 @@ namespace GusQuiz.Pages
         protected int carsCount = 24;
         protected int videoGamesCount = 28;
         protected int footballCount = 32;
+        protected int historyCount = 37;
+        protected int politicalHistoryCount = 41;
+        protected int arthistoryCount = 45;
+        protected int worldwarsCount = 49;
+        protected int dessertCount = 53;
+        protected int frenchCount = 57;
+        protected int italianCount = 61;
+        protected int drinksCount = 65;
         protected override Task OnInitializedAsync()
         {
             LoadQuestions();
@@ -127,43 +135,6 @@ namespace GusQuiz.Pages
             {
                 Name = name;
             }
-        }
-
-        private void LoadQuestionsFrenchCuisine()
-        {
-            QuestionFrenchCuisine q1 = new QuestionFrenchCuisine
-            {
-                NameOfQuestion = "Vad är Frankrikes nationalrätt?",
-                Options = new List<string>() { "Bouillabaisse", "Steak Frites", "Boeuf bourguignon ", "Coq au vin" },
-                Answer = "Steak Frites",
-                Category = "Franska Köket"
-            };
-
-            QuestionFrenchCuisine q2 = new QuestionFrenchCuisine
-            {
-                NameOfQuestion = "Vad kallas denna franska dessert?",
-                Options = new List<string>() { "Omelette", "Croissant", "Pain au chocolat", "Éclair" },
-                Answer = "Croissant",
-                Image = "https://gammaldagsrecept.se/wp-content/uploads/2021/02/Croissanter-Recept.jpg",
-                Category = "Franska Köket"
-            };
-
-            QuestionFrenchCuisine q3 = new QuestionFrenchCuisine
-            {
-                NameOfQuestion = "Vilken svensk skapade Minecraft?",
-                Options = new List<string>() { "Markus Persson", "Daniel Ek", "Joakim Larsson", "Max Pettersson" },
-                Answer = "Markus Persson",
-                Category = "TV-Spel"
-            };
-
-            QuestionFrenchCuisine q4 = new QuestionFrenchCuisine
-            {
-                NameOfQuestion = "Battle Royale är ett populärt läge. Det innebär att man möter andra lag och laget som är kvar sist vinner. Vilket är det populäraste Battle Royale Spelet?",
-                Options = new List<string>() { "Fortnite", "Apex Legends", "PUBG: Battlegrounds", "Call Of Duty: Warzone" },
-                Answer = "PUBG: Battlegrounds",
-                Category = "TV-Spel"
-            };
-            QuestionsFrenchCuisine.AddRange(new List<QuestionFrenchCuisine> { q1, q2, q3, q4, });
         }
 
         private void LoadQuestions()
