@@ -9,7 +9,8 @@ h1:focus {
 }
 
 a, .btn-link {
-    color: #0071c1;
+    color: black !important;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 .btn-primary {
