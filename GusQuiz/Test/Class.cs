@@ -12,7 +12,6 @@ namespace GusQuiz.Test
         {
             int player1Score = 20;
             int player2Score = 10;
-            int player1Wins = 0;
 
             Assert.True(player1Score > player2Score);
         }
@@ -30,9 +29,6 @@ namespace GusQuiz.Test
         public void QuizTest()
         {
             string question1 = "test1";
-            string question2 = "test2";
-            string question3 = "test3";
-            string question4 = "test4";
             string player1 = question1;
 
             Assert.True(player1 == question1);
