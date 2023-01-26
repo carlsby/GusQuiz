@@ -12,7 +12,7 @@ namespace GusQuiz.Pages
     public class QuizBase : ComponentBase
     {
         public List<Question> Questions { get; set; } = new List<Question>();
-        public List<int> usedNumbers = new List<int>(); //lista för att få ut random nummer
+        public List<int> usedNumbers = new List<int>(); // Lista för att få ut random nummer
 
 
         protected int questionIndex6 = 0;
@@ -30,7 +30,7 @@ namespace GusQuiz.Pages
         protected string player2 = "";
         protected int index = 0;
 
-        //under deklareras så att frågorna börjar på rätt index till de olika kategorierna
+        // Under deklareras så att frågorna börjar på rätt index till de olika kategorierna
         protected int golfCount = 0;
         protected int hockeyCount = 5;
         protected int tennisCount = 9;
@@ -53,7 +53,7 @@ namespace GusQuiz.Pages
             return base.OnInitializedAsync();
         }
 
-        //spelare1's alternativ, om de svarar rätt så får de poäng. Efter spelare1 har svarat går det vidare till nästa fråga
+        // Spelare1's alternativ, om de svarar rätt så får de poäng. Efter spelare1 har svarat går det vidare till nästa fråga
         public void OptionSelected(string option)
         {
             if (option == Questions[index].Answer)
@@ -64,7 +64,7 @@ namespace GusQuiz.Pages
             questionIndex23++;
         }
 
-        //spelare2's alternativ, om de svarar rätt så får de poäng. Efter spelare1 har svarat går det vidare till nästa fråga
+        // Spelare2's alternativ, om de svarar rätt så får de poäng. Efter spelare1 har svarat går det vidare till nästa fråga
         protected void OptionSelected2(string option)
         {
             if (option == Questions[index].Answer)
@@ -77,7 +77,7 @@ namespace GusQuiz.Pages
 
         public void OptionSelectedSolo(string option)
         {
-            //ifall indexet går över sin limit så stoppas det så att programmet inte kraschar
+            // Ifall indexet går över sin limit så stoppas det så att programmet inte kraschar
             if (questionIndex5 >= 5)
             {
                 questionIndex5--;
@@ -90,7 +90,7 @@ namespace GusQuiz.Pages
             {
                 questionIndex4--;
             }
-            //om du svarar rätt på frågorna så får du ett poäng, så inte soloquizen blandas ihop
+            // Om du svarar rätt på frågorna så får du ett poäng
             if (option == Questions[golfCount].Answer ||
                 option == Questions[hockeyCount].Answer ||
                 option == Questions[tennisCount].Answer ||
@@ -127,7 +127,7 @@ namespace GusQuiz.Pages
             playeroneloop = false;
         }
 
-        protected void RestartQuiz() //startar om quizet och nollställer alla värden förutom playerwins till 0
+        protected void RestartQuiz() // Startar om quizet och nollställer alla värden förutom playerwins till 0
         {
             usedNumbers.Clear();
             questionIndex23 = 0;
@@ -156,7 +156,7 @@ namespace GusQuiz.Pages
             drinksCount = 65;
     }
 
-        //skapar klassen player som används för att ta in spelarnamn till en lista
+        // Skapar klassen player som används för att ta in spelarnamn till en lista
         public class Player
         {
             public string Name { get; set; }
@@ -166,7 +166,7 @@ namespace GusQuiz.Pages
             }
         }
 
-        //skapar en lista som fylls på med titel, alternativ, svar och kategorier
+        // Skapar en lista som fylls på med titel, alternativ, svar och kategorier
         private void LoadQuestions()
         {
             Question q0 = new Question
