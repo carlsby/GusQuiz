@@ -29,7 +29,7 @@
             <div class="quiz-body">
                 @foreach (var option in Questions[index].Options) // En loop som gör att du kan trycka på alla alternativ i alla frågor
                 {
-                    <button class="option-btn" @onclick="indexcouter"><OptionCard Option="@option" OnOptionSelected="OptionSelected"></OptionCard></button>  
+                    <button class="option-btn" @onclick="indexcounter"><OptionCard Option="@option" OnOptionSelected="OptionSelected"></OptionCard></button>  
                 }
             </div>
         }
@@ -62,7 +62,7 @@
                 <div class="quiz-body">
                     @foreach (var option in Questions[index].Options)
                     {
-                        <button class="option-btn" @onclick="indexcouter"><OptionCard Option="@option" OnOptionSelected="OptionSelected2" ></OptionCard></button>  
+                        <button class="option-btn" @onclick="indexcounter"><OptionCard Option="@option" OnOptionSelected="OptionSelected2" ></OptionCard></button>  
                     }
                 </div>
                     }
@@ -128,7 +128,7 @@
     };
 
     // Slumpar ut index nummer och kollar så dem inte är likadana 
-    public void indexcouter()
+    public void indexcounter()
     {
         Random slump = new Random();
         do
