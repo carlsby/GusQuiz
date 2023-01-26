@@ -11,7 +11,6 @@ namespace GusQuiz.Pages
 {
     public class QuizBase : ComponentBase
     {
-        public List<QuestionFrenchCuisine> QuestionsFrenchCuisine { get; set; } = new List<QuestionFrenchCuisine>();
         public List<Question> Questions { get; set; } = new List<Question>();
         public List<int> usedNumbers = new List<int>();
 
@@ -20,14 +19,14 @@ namespace GusQuiz.Pages
         protected int questionIndex5 = 0;
         protected int questionIndex4 = 0;
         protected int questionIndex23 = 0;
-        protected int player1Score = 0;
-        protected int player2Score = 0;
+        public int player1Score = 0;
+        public int player2Score = 0;
         protected bool playertwoloop = false;
         protected bool playeroneloop = true;
         protected int newNumber;
-        protected int player1Wins = 0;
-        protected int player2Wins = 0;
-        protected string player1 = "";
+        public int player1Wins = 0;
+        public int player2Wins = 0;
+        public string player1 = "";
         protected string player2 = "";
         protected int index = 0;
         protected int golfCount = 0;

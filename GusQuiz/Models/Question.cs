@@ -9,15 +9,6 @@
         public string Answer { get; set; } = string.Empty;
     }
 
-    public class QuestionFrenchCuisine
-    {
-        public string NameOfQuestion { get; set; } = string.Empty;
-        public string Category { get; set; } = string.Empty;
-        public IEnumerable<string> Options { get; set; } = new List<string>();
-        public string Answer { get; set; } = string.Empty;
-        public string Image { get; set; } = string.Empty;
-    }
-
     public class Names
     {
         public string NameOfPerson { get; set; } = string.Empty;

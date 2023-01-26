@@ -1,5 +1,6 @@
 ﻿using GusQuiz.Components;
 using GusQuiz.Models;
+using GusQuiz.Pages;
 using Microsoft.Extensions.Options;
 using Xunit;
 
@@ -10,60 +11,55 @@ namespace GusQuiz.Test
         [Fact]
         public void TestPlayer1Score()
         {
-            int player1Score = 20;
-            int player2Score = 10;
+            var TestQuiz = new QuizBase();
+            TestQuiz.player1Score = 20;
+            TestQuiz.player2Score = 10;
 
-            Assert.True(player1Score > player2Score);
+            Assert.True(TestQuiz.player1Score > TestQuiz.player2Score);
         }
 
         [Fact]
         public void TestPlayer2Score()
         {
-            int player1Score = 10;
-            int player2Score = 20;
+            var TestQuiz = new QuizBase();
+            TestQuiz.player1Score = 10;
+            TestQuiz.player2Score = 20;
 
-            Assert.True(player2Score > player1Score);
-        }
-
-        [Fact]
-        public void QuizTest()
-        {
-            string question1 = "test1";
-            string player1 = question1;
-
-            Assert.True(player1 == question1);
+            Assert.True(TestQuiz.player2Score > TestQuiz.player1Score);
         }
 
         [Fact]
         public void TestPlayer1Wins()
         {
-            int player1Score = 10;
-            int player2Score = 5;
-            int player1Wins = 0;
+            var TestQuiz = new QuizBase();
+            TestQuiz.player1Score = 10;
+            TestQuiz.player2Score = 5;
+            TestQuiz.player1Wins = 0;
 
-            if (player1Score > player2Score)
+            if (TestQuiz.player1Score > TestQuiz.player2Score)
             {
-                player1Wins++;
+                TestQuiz.player1Wins++;
             }
 
-            Assert.True(player1Score > player2Score);
-            Assert.Equal(1, player1Wins);
+            Assert.True(TestQuiz.player1Score > TestQuiz.player2Score);
+            Assert.Equal(1, TestQuiz.player1Wins);
         }
 
         [Fact]
         public void TestPlayer2Wins()
         {
-            int player1Score = 5;
-            int player2Score = 10;
-            int player2Wins = 0;
+            var TestQuiz = new QuizBase();
+            TestQuiz.player1Score = 5;
+            TestQuiz.player2Score = 10;
+            TestQuiz.player2Wins = 0;
 
-            if (player1Score < player2Score)
+            if (TestQuiz.player1Score < TestQuiz.player2Score)
             {
-                player2Wins++;
+                TestQuiz.player2Wins++;
             }
 
-            Assert.True(player1Score < player2Score);
-            Assert.Equal(1, player2Wins);
+            Assert.True(TestQuiz.player1Score < TestQuiz.player2Score);
+            Assert.Equal(1, TestQuiz.player2Wins);
         }
     }
 }
