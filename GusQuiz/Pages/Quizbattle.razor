@@ -6,28 +6,28 @@
 
 
 
-@if (players.Count < 2)
+@if (players.Count < 2) // Kollar ifall det är mindre än två spelare. Är det två eller fler startar spelet
 {
-    <input type="text" @bind="firstName" placeholder="Enter player name" />
+    <input type="text" @bind="firstName" placeholder="Enter player name" /> 
     <button @onclick="AddPlayer">Add Player</button>
 }
 
-@if (players.Count > 1)
+@if (players.Count > 1)  
 {
-    @if (playeroneloop == true)
+    @if (playeroneloop == true) // Spelare etts tur att spela
     {
         <div class="container">
             <div class="quiz">
-        @if (questionIndex23 < 10)
+        @if (questionIndex23 < 10) // Quizet körs tills index är tio
         {
             <div class="app-title">
-                @Questions[index].Category
+                @Questions[index].Category  
             </div>
             <div class="quiz-header">
                 @Questions[index].NameOfQuestion
             </div>
             <div class="quiz-body">
-                @foreach (var option in Questions[index].Options)
+                @foreach (var option in Questions[index].Options) // En loop som gör att du kan trycka på alla alternativ i alla frågor
                 {
                     <button class="option-btn" @onclick="indexcouter"><OptionCard Option="@option" OnOptionSelected="OptionSelected"></OptionCard></button>  
                 }
@@ -35,8 +35,8 @@
         }
                 else
                 {
-                    <div class="quiz-footer">
-                        <button class="next-btn" @onclick="@NextPlayer">Next Player</button>
+                    <div class="quiz-footer"> 
+                        <button class="next-btn" @onclick="@NextPlayer">Next Player</button> 
                     </div>
                 }
                 <b class="player-name">@players[0].Name</b>
@@ -45,7 +45,7 @@
     }
 
 
-    @if (playertwoloop == true)
+    @if (playertwoloop == true) // Spelare tvås tur att spela
     {
         <div class="container">
             <div class="quiz">
@@ -66,7 +66,7 @@
                     }
                 </div>
                     }
-                    else if (questionIndex23 >= 9)
+                    else if (questionIndex23 >= 9) // Efter alla frågor är svarade är spelet slut
                     {
                         gameOver = true;
                     }
@@ -80,19 +80,19 @@
                     {
                         <img class="winlose" src="/images/trophy.png" />
                         <b>@players[0].Name wins!</b>
-                        player1Wins++;
+                        player1Wins++; // Om spelare 1 vinner ökar poängen med 1
                         gameOver = false;
                     }
                     else if (player1Score < player2Score)
                     {
                         <img class="winlose" src="/images/trophy.png" />
                         <b>@players[1].Name wins!</b>
-                        player2Wins++;
+                        player2Wins++; // Om spelare 2 vinner ökar poängen med 1
                         gameOver = false;
                     }
                     else
                     {
-                        <b>You are tied!</b>
+                        <b>You are tied!</b> // Om lika poäng får båda 1 poäng 
                         player1Wins++;
                         player2Wins++;
                         _ = JSRuntime.InvokeVoidAsync("console.log", "Shouldn't show");
@@ -117,7 +117,7 @@
     bool gameOver = false;
 
     string firstName = "";
-    public void AddPlayer()
+    public void AddPlayer() // Läggtill spelare från inputen
     {
         players.Add(new Player(firstName));
         firstName = "";
@@ -127,7 +127,7 @@
     {
     };
 
-
+    // Slumpar ut index nummer och kollar så dem inte är likadana 
     public void indexcouter()
     {
         Random slump = new Random();
