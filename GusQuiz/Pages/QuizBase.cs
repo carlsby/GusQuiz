@@ -90,7 +90,7 @@ namespace GusQuiz.Pages
             {
                 questionIndex4--;
             }
-            //Om du svarar rätt på frågorna så får du ett poäng, så inte soloquizen blandas ihop
+            //om du svarar rätt på frågorna så får du ett poäng, så inte soloquizen blandas ihop
             if (option == Questions[golfCount].Answer ||
                 option == Questions[hockeyCount].Answer ||
                 option == Questions[tennisCount].Answer ||
@@ -156,7 +156,7 @@ namespace GusQuiz.Pages
             drinksCount = 65;
     }
 
-        //Skapar klassen player som används för att ta in spelarnamn till en lista
+        //skapar klassen player som används för att ta in spelarnamn till en lista
         public class Player
         {
             public string Name { get; set; }
@@ -166,7 +166,7 @@ namespace GusQuiz.Pages
             }
         }
 
-        // Skapar en lista som fylls på med titel, alternativ, svar och kategorier
+        //skapar en lista som fylls på med titel, alternativ, svar och kategorier
         private void LoadQuestions()
         {
             Question q0 = new Question
