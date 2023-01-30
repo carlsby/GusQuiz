@@ -23,7 +23,5 @@
   <img src="https://i.gyazo.com/cde2ce652822777b06e6518c14026f77.png" width="450px"></img>
 </div>
 <h4 align="center">Här får spelarna först skriva in sina namn och sedan startar spelet. Först spelar spelare1 och efter hen svarat på 10 frågor så får spelare 2 också chansen att svara på 10 frågor. Efter detta skrivs det ut vem som har vunnit och vinsterna sparas i Vinsttabellen. <br/>
-<div align="center">
-  <img src="https://i.gyazo.com/780ece3b15d016b66e48487cebdd546c.png" width="150px"> <img src="https://i.gyazo.com/ae3c64b17b08f92dc76f6c654a938b89.png" width="150px">
-</div>
-  <br/>Spelarna kan sedan trycka på "spela igen" för att spela en runda till.</h4>
+  <img src="https://i.gyazo.com/780ece3b15d016b66e48487cebdd546c.png" width="250px"> <img src="https://i.gyazo.com/ae3c64b17b08f92dc76f6c654a938b89.png" width="250px">
+  Spelarna kan sedan trycka på "spela igen" för att spela en runda till.</h4>
