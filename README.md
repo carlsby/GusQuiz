@@ -10,4 +10,4 @@
 <p align="center">Det finns 68 frågor att svara på i olika kategorier. När man spelar i spelläget QuizBattle så slumpas frågorna fram och det kan komma från vilken kategori som helst.</p>
 
 <h1 align="center">Hur man startar applikationen</h1>
-<h3 align="center">Det är bara att trycka på <img src="https://i.gyazo.com/a95458492991cd84f662451aaa52b27e.png" width="150px"></img>knappen för att starta applikationen. </h3>
+<h3 align="center">Det är bara att trycka på <img src="https://i.gyazo.com/a95458492991cd84f662451aaa52b27e.png" width="30px"></img>knappen för att starta applikationen. </h3>
