@@ -35,17 +35,10 @@
                 }
             </div>
             <div class="quiz-header">
-                @if (player1Score == 1)
-                {
-                    <b>You scored @player1Score/@questionIndex4 point!</b>
-                }
-                else
-                {
-                    <b>You scored @player1Score/@questionIndex4 points!</b>
-                }
+                    <b>Du fick @player1Score/@questionIndex4 poäng!</b>
             </div>
             <div class="quiz-footer">
-                <button class="next-btn" @onclick="@RestartQuiz">Play Again</button>
+                <button class="next-btn" @onclick="@RestartQuiz">Spela igen</button>
             </div>
         }
     </div>

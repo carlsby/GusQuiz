@@ -4,11 +4,16 @@
 
 .top-row {
     height: 3.5rem;
-    background-color: rgba(0,0,0,0.4);
+    background-color: rgba(0,0,0,0.1);
+    border-bottom: 1px solid black;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
 }
 
 .navbar-brand {
     font-size: 1.1rem;
+    font-weight: bolder;
+    margin-left: 60px;
 }
 
 .oi {
@@ -18,9 +23,15 @@
     top: -2px;
 }
 
+.svg {
+    width: 3rem;
+    margin-right: 10px;
+}
+
 .nav-item {
     font-size: 0.9rem;
     padding-bottom: 0.5rem;
+    font-weight: bolder;
 }
 
     .nav-item:first-of-type {

@@ -1,0 +1,59 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+.welcome-header {
+    text-align: center;
+    margin: 0 auto;
+    color: black;
+    width: 25%;
+    background: #4CAF50;
+    border-radius: 5px;
+    font-size: 2vw;
+}
+
+a {
+    text-decoration: none;
+}
+
+.category-btn {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    font-size: 16px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+}
+
+.category-btn:hover {
+    background-color: green;
+    transition: 0.2s;
+}
+
+.category-btn:hover > .svg {
+    opacity: 0.7;
+}
+
+.container {
+    margin: 100px auto;
+    width: 50%;
+}
+
+.category-header {
+    text-align: center;
+    color: green;
+    margin-bottom: 20px;
+}
+
+.svg {
+    width: 2.2rem;
+    display: block;
+    margin: 0 auto;
+}

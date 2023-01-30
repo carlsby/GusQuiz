@@ -47,8 +47,7 @@
 
 .quiz {
     margin: 0 auto;
-    width: 700px;
-    height: 600px;
+    width: 75%;
     border-radius: 10px;
     padding: 0 15px 15px 15px;
     box-shadow: -20px 20px 30px rgba(0,0,0,0.3);
@@ -79,6 +78,7 @@
     color: black;
     font-weight: bolder;
     cursor: pointer;
+    margin-bottom: 20px;
 }
 
 .next-btn:hover {
@@ -93,25 +93,41 @@
     margin-right: 5px;
 }
 
-.inputClass::after{
-    display: none;
-}
-
-.footer {
+.player-info {
     position: absolute;
     bottom: 0;
-    font-size: 18px;
+    width: 13%;
     border: 2px solid green;
-    padding: 4px;
+    padding: 0px;
     border-radius: 15px;
     margin-bottom: 5px;
+    padding: 0 10px 4px 4px;
+}
+
+.wins-header {
+    margin: 0 auto;
+    text-align: center;
+    width: 70%;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border: 2px solid black;
+    border-top: none;
+    background-color: green;
+    color: black;
+    font-size: 1rem;
+}
+
+.win-count {
+    float: right;
+    color: green;
+    font-size: 1.1rem;
 }
 
 .uppercase {
     margin-left: 5px;
-    display: block;
+    display: inline-block;
     color: green;
-    font-size: 18px;
+    font-size: 1.1rem;
 }
 
 .uppercase::first-letter{
@@ -120,8 +136,7 @@
 
 .player-name {
     text-align: center;
-    margin-top: 15px;
-    background-color: green;
+    background-color: #32CD32;
     border-top-left-radius: 15px;
     color: black;
     font-size: 18px !important;
@@ -132,8 +147,8 @@
     font-weight: bolder;
     position: absolute;
     bottom: 0;
-    width: 70%;
-    left: 15%;
+    width: 40%;
+    left: 30%;
 }
 
 .player-name::first-letter{
@@ -144,10 +159,11 @@
     text-align: center;
     margin: 0 auto;
     display: block;
-    font-size: 12px;
+    font-size: 1.4rem;
     color: white;
     text-transform: uppercase;
     border-radius: 15px;
+    margin-bottom: 40px;
 }
 
 .quiz-footer {
@@ -155,4 +171,63 @@
     display: block;
     margin: 0 auto;
     border-radius: 25px;
+}
+
+.welcome-con {
+    margin: 0 auto;
+    width: 600px;
+}
+
+.welcome-header {
+    width: 100%;
+    font-size: 40px;
+    color: green;
+}
+
+.welcome-h3 {
+    font-size: 1.2rem;
+    color: darkgreen;
+    font-weight: 100;
+    margin-left: 40px;
+    margin-bottom: 40px;
+}
+
+.start-h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: darkgreen;
+    margin-left: 20px;
+}
+
+.winscreen::first-letter {
+    text-transform: uppercase;
+}
+
+.winscreen {
+    font-size: 1.8rem;
+}
+
+.container {
+    margin: 0 auto;
+    width: 75%;
+}
+
+input {
+    background-color: #4CAF50;
+    border: 2px solid black;
+    margin-left: 15%;
+    border-radius: 5px;
+}
+
+input::placeholder {
+    color: black;
+}
+
+.submit-player-btn {
+    background-color: #4CAF50;
+    border-radius: 5px;
+}
+
+.submit-player-btn:hover {
+    background-color: green;
 }

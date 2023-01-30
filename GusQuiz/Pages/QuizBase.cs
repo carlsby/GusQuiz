@@ -613,7 +613,7 @@ namespace GusQuiz.Pages
             };
             Question q58 = new Question
             {
-                NameOfQuestion = "Vilken fransk delikatess är gjord på grund av vilken fransmän fick ett av deras smeknamn?",
+                NameOfQuestion = "Vilken fransk delikatess är gjord på grund av fransmännen kallas så?",
                 Options = new List<string>() { "Spindlar", "Grodor", "Sniglar", "Gräshoppor" },
                 Answer = "Grodor",
                 Category = "Franska köket"

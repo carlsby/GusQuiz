@@ -8,8 +8,18 @@
 
 @if (players.Count < 2) // Kollar ifall det är mindre än två spelare. Är det två eller fler startar spelet
 {
-    <input type="text" @bind="firstName" placeholder="Enter player name" /> 
-    <button @onclick="AddPlayer">Add Player</button>
+    <div class="welcome-con">
+            <h1 class="welcome-header">Välkommen till Quiz Battle!</h1>
+            <h3 class="welcome-h3">
+                I detta spelet så turas två spelare om att svara på <br>
+                frågor. Frågorna slumpas in och den som har flest <br/>
+                rätt på de tio slumpade frågorna vinner spelet.
+                <br/>
+            </h3>
+            <h3 class="start-h3">Vänligen skriv in två spelarnamn för att starta spelet.</h3>
+            <input type="text" @bind="firstName" placeholder="Skriv in ditt namn" /> 
+            <button class="submit-player-btn" @onclick="AddPlayer">Lägg till spelare</button>
+    </div>
 }
 
 @if (players.Count > 1)  
@@ -36,9 +46,10 @@
                 else
                 {
                     <div class="quiz-footer"> 
-                        <button class="next-btn" @onclick="@NextPlayer">Next Player</button> 
+                        <button class="next-btn" @onclick="@NextPlayer">Nästa spelare</button> 
                     </div>
                 }
+                <br/>
                 <b class="player-name">@players[0].Name</b>
             </div>
         </div>
@@ -79,20 +90,20 @@
                    @if (player1Score > player2Score)
                     {
                         <img class="winlose" src="/images/trophy.png" />
-                        <b>@players[0].Name wins!</b>
+                        <p class="winscreen">@players[0].Name vinner!</p>
                         player1Wins++; // Om spelare 1 vinner ökar poängen med 1
                         gameOver = false;
                     }
                     else if (player1Score < player2Score)
                     {
                         <img class="winlose" src="/images/trophy.png" />
-                        <b>@players[1].Name wins!</b>
+                        <p class="winscreen">@players[1].Name vinner!</p>
                         player2Wins++; // Om spelare 2 vinner ökar poängen med 1
                         gameOver = false;
                     }
                     else
                     {
-                        <b>You are tied!</b> // Om lika poäng får båda 1 poäng 
+                        <p class="winscreen">Ni har lika mycket poäng!</p> // Om lika poäng får båda 1 poäng 
                         player1Wins++;
                         player2Wins++;
                         _ = JSRuntime.InvokeVoidAsync("console.log", "Shouldn't show");
@@ -101,14 +112,22 @@
                  </div>
                  <div class="quiz-footer">
                      <b class="questions-right">@players[0].Name: @player1Score/@questionIndex23<br/> @players[1].Name: @player2Score/@questionIndex23<br/></b>
-                    <button class="next-btn" @onclick="@RestartQuiz">Play Again</button>
+                    <button class="next-btn" @onclick="@RestartQuiz">Spela igen</button>
                  </div>
             }
+                <br/>
                 <b class="player-name">@players[1].Name</b>
             </div>
         </div>
     }
-    <div class="footer"><p class="uppercase">@players[0].Name: @player1Wins wins</p><p class="uppercase">@players[1].Name: @player2Wins wins</p></div>
+    <div class="player-info">
+        <h4 class="wins-header">Vinst Tabell</h4>
+        <p class="uppercase">@players[0].Name:</p>
+        <p class="win-count">@player1Wins wins</p>
+        <br/>
+        <p class="uppercase">@players[1].Name:</p>
+        <p class="win-count">@player2Wins wins</p>
+    </div>
 }
 
 
