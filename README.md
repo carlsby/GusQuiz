@@ -1,1 +1,1 @@
-<h1 text="align center">GusQuiz</h1>
+<h1 align="center">Gus Quiz </h1>
